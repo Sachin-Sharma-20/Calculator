@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'background.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State createState() => new HomePageState();
@@ -56,70 +58,72 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Calculator"),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "Output : $res",
-              style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.purple),
-            ),
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(hintText: "Enter Number 1st"),
-              controller: t1,
-            ),
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(hintText: "Enter Number 2nd"),
-              controller: t2,
-            ),
-            Padding(padding: const EdgeInsets.only(top: 40.0)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                MaterialButton(
-                  child: Text("+"),
-                  color: Colors.grey[400],
-                  onPressed: add,
-                ),
-                MaterialButton(
-                  child: Text("-"),
-                 color: Colors.grey[400],
-                  onPressed: sub,
-                )
-              ],
-            ),
-            Padding(padding: const EdgeInsets.only(top: 20.0)),
-            Row(
+      body: Background(
+              child: Container(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "Output : $res",
+                style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.purple),
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(hintText: "Enter Number 1st"),
+                controller: t1,
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(hintText: "Enter Number 2nd"),
+                controller: t2,
+              ),
+              Padding(padding: const EdgeInsets.only(top: 40.0)),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   MaterialButton(
-                    child: Text("*"),
-                   color: Colors.grey[400],
-                    onPressed: mul,
+                    child: Text("+"),
+                    color: Colors.grey[400],
+                    onPressed: add,
                   ),
                   MaterialButton(
-                    child: Text("/"),
+                    child: Text("-"),
                    color: Colors.grey[400],
-                    onPressed: div,
+                    onPressed: sub,
                   )
-                ]),
-            Padding(padding: const EdgeInsets.only(top: 40.0)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                MaterialButton(
-                    child: Text("Clear"),
-                   color: Colors.grey[400],
-                    onPressed: clear),
-              ],
-            )
-          ],
+                ],
+              ),
+              Padding(padding: const EdgeInsets.only(top: 20.0)),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    MaterialButton(
+                      child: Text("*"),
+                     color: Colors.grey[400],
+                      onPressed: mul,
+                    ),
+                    MaterialButton(
+                      child: Text("/"),
+                     color: Colors.grey[400],
+                      onPressed: div,
+                    )
+                  ]),
+              Padding(padding: const EdgeInsets.only(top: 40.0)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  MaterialButton(
+                      child: Text("Clear"),
+                     color: Colors.grey[400],
+                      onPressed: clear),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
